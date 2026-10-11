@@ -1,0 +1,21 @@
+body:before{content:"";position:fixed;z-index:30;left:0;top:0;width:100%;height:2px;background:var(--lime);transform:scaleX(var(--scroll-progress,0));transform-origin:left;pointer-events:none;box-shadow:0 0 12px #c7f36b66}
+.portrait-orb{overflow:visible;background:#111;border:1px solid rgba(199,243,107,.55);box-shadow:0 0 0 10px rgba(199,243,107,.06),0 0 70px rgba(155,207,122,.24),inset 0 0 0 5px rgba(255,255,255,.12)}
+.portrait-orb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 36%;border-radius:50%;animation:headshot-spin 22s linear infinite;backface-visibility:visible}
+@keyframes headshot-spin{from{rotate:0deg}to{rotate:360deg}}
+.hero-art:after{content:"MANOJ NAKKA · CSE 2027";position:absolute;bottom:0;right:5%;font:9px var(--mono);letter-spacing:.14em;color:#aab3aa}
+.slide-in{opacity:0;transform:translate3d(0,46px,0);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.slide-in.in-view{opacity:1;transform:translate3d(0,0,0)}
+.project-card:nth-child(even){transition-delay:.12s}
+.achievement-card{transition-delay:var(--slide-delay,0ms)}
+.project-card{transform-style:preserve-3d;will-change:transform}
+.project-card .project-visual{transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .4s}
+.project-card:hover .project-visual{transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-4px);filter:brightness(1.08)}
+.project-card .project-meta,.project-card .project-tags{transition:transform .35s ease}
+.project-card:hover .project-meta{transform:translateX(5px)}
+.project-card:hover .project-tags{transform:translateY(-2px)}
+.skill-group{transition:padding-left .3s ease,color .3s ease}
+.skill-group:hover{padding-left:9px}
+.skill-group:hover .skill-plus{transform:rotate(90deg)}
+.skill-plus{transition:transform .3s ease}
+@media(max-width:600px){.hero-art:after{right:8%;font-size:8px}.portrait-orb{width:54vw;height:54vw}}
+@media(prefers-reduced-motion:reduce){.slide-in{opacity:1;transform:none}.portrait-orb img{animation:none}}
